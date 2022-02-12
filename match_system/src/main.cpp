@@ -73,7 +73,7 @@ class Pool
         bool check_match(uint32_t i, uint32_t j)
         {
             auto a = users[i], b = users[j];
-            int dt = abs(a.score = b.score);
+            int dt = abs(a.score - b.score);
             int a_max_dif = wt[i] * 50;
             int b_max_dif = wt[j] * 50;
 
@@ -83,7 +83,6 @@ class Pool
 
         void match()
         {
-            printf("enter match()");
             for (uint32_t i = 0; i < wt.size(); i ++ )
                 wt[i] ++ ; //等待秒数+1
             while (users.size() > 1)
